@@ -8,3 +8,4 @@ from words import list_of_words
 
 for _ in range(10):
     print(random.choice(list_of_words))
+

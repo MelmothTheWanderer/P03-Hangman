@@ -5,8 +5,4 @@
 
 #This is a comment to test that things are working on Github , and that  Codeanywhere is pushing to Github okay . 
 
-def greeting (name):
-    print(f"Hello , my name is {name}")
-
-greeting(input("Please type your name here: \n"))
 

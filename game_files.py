@@ -65,3 +65,12 @@ LIST_OF_WORDS = ['needle', 'exuberant', 'approve', 'boil', 'careless', 'harsh',
                  'produce', 'billowy', 'snotty', 'paddle',
                  'scandalous', 'reading', 'loss', 'joyous', 'flash', 'guarantee', 'pies',
                  'faithful', 'invent', 'actor']
+
+GAME_LOGO = """ 
+██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██ 
+██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██ 
+███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██ 
+██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██ 
+██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████ 
+"""
+

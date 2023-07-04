@@ -46,8 +46,6 @@ def print_out_letter_display(display):
     """
     # Display the Welcome message
     print()
-    print(f"Welcome to Hangman!\nThe word that you are trying to guess has \
-{len(display)} letters !\n")
     print(display)
 
 def ask_user_to_make_a_guess():
@@ -65,8 +63,9 @@ def validate_input(user_guess):
     """
 
 print_out_logo()
-print_out_letter_display(display_word(choose_word()))
+
 print_out_logo_art(0)
+print_out_letter_display(display_word(choose_word()))
 validate_input(ask_user_to_make_a_guess())
 
 

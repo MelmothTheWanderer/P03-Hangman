@@ -1,4 +1,55 @@
-list_of_words = ['needle', 'exuberant', 'approve', 'boil', 'careless', 'harsh',
+ASCII_ART = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
+LIST_OF_WORDS = ['needle', 'exuberant', 'approve', 'boil', 'careless', 'harsh',
                  'person', 'unpack', 'large', 'spring', 'mind', 'decay', 'provide',
                  'smile', 'late', 'bath', 'throat', 'long', 'dime', 'rescue', 'stormy',
                  'concerned', 'cakes', 'funny', 'satisfy', 'hug', 'tax', 'bite-sized',

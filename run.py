@@ -58,16 +58,16 @@ def ask_user_to_make_a_guess():
     return guess
 
 def validate_input(user_guess):
-    
+
     """
     Takes the output from the ask_user_to_make_a_guess function , and validates it to make sure that
-    the data is valid. 
+    the data is valid.
     """
 
 print_out_logo()
 print_out_letter_display(display_word(choose_word()))
 print_out_logo_art(0)
-print(ask_user_to_make_a_guess())
+validate_input(ask_user_to_make_a_guess())
 
 
 

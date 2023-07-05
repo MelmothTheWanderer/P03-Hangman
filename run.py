@@ -75,6 +75,18 @@ class Game:
 
 # TODO : Define a function that will look for the guessed letter in the word array, and if it is in there
 #   then replace the blanks in the display with the letters in their respective spots.
+
+    def check_guess(self, guess):
+        if guess in self.word:
+            # TODO: Create something in that game files that will change the message that confirms that a letter
+            #   letter has hit . Use the random.choice method, or something similar .
+            print("That's a hit!")
+            for position in range(len(self.word)):
+                letter = self.word[position]
+                if letter == guess:
+                    self.display[position] = guess
+        else:
+            print("Nope, that letter is not in the word")
 New_game = Game()
 
 New_game.print_out_logo()
@@ -82,6 +94,7 @@ print(New_game.word)
 
 New_game.print_out_logo_art()
 New_game.print_word_display()
+New_game.check_guess(New_game.make_guess())
+New_game.print_word_display()
 
-New_game.make_guess()
 

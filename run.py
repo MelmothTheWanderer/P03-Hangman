@@ -13,13 +13,7 @@ def choose_word():
     return random_word
 
 
-def update_word_display(word):
-    """Creates an array of underscores to represent unknwon letters of the word
-    """
-    display = []
-    for _ in range(len(word)):
-        display.append("_")
-    print(display)
+
 
 
 def print_out_logo():
@@ -75,14 +69,18 @@ def make_guess():
         else:
             return guess.lower()
 
-
-print_out_logo()
-print_out_logo_art(0)
-update_word_display(choose_word())
-make_guess()
-
-
 class Game:
     def __init__(self):
         self.word = choose_word()
+        self.lives = 7
 
+    def update_word_display(word):
+        """Creates an array of underscores to represent unknwon letters of the word
+        """
+        display = []
+        for _ in range(len(word)):
+            display.append("_")
+        print(display)
+
+
+print(len(ASCII_ART))

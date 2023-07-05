@@ -14,8 +14,6 @@ def choose_word():
     return random_word
 
 
-
-
 class Game:
     def __init__(self):
         self.word = list(choose_word())
@@ -46,6 +44,16 @@ class Game:
         """
         print(ASCII_ART[(self.lives - 7) * -1])
 
+    def refresh_the_playboard(self):
+
+        """
+        Should be called after each guess. It displays the relevant hangman picture, along
+        with the updated word display
+        """
+
+        self.print_out_logo_art()
+        self.print_word_display()
+
     def make_guess(self):
         """
         This function will get the user to make a guess , and only return the value after it has
@@ -73,20 +81,35 @@ class Game:
             else:
                 return guess.lower()
 
-# TODO : Define a function that will look for the guessed letter in the word array, and if it is in there
-#   then replace the blanks in the display with the letters in their respective spots.
-
     def check_guess(self, guess):
         if guess in self.word:
             # TODO: Create something in that game files that will change the message that confirms that a letter
             #   letter has hit . Use the random.choice method, or something similar .
-            print("That's a hit!")
+
             for position in range(len(self.word)):
                 letter = self.word[position]
                 if letter == guess:
                     self.display[position] = guess
+
+            self.refresh_the_playboard()
+            print("")
+            print("That's a hit!")
+
         else:
-            print("Nope, that letter is not in the word")
+            self.refresh_the_playboard()
+            print("")
+            print("Nope, that letter is not in the word!")
+
+    # TODO: Define a function that will combine the various functions involved in "refreshing"
+    #    every time the user makes a guess.
+
+
+
+    # TODO Make a function that will keep allowing the user to make these guesses until they
+    #   there are no underscores present in the display array , thus winnind the game, or
+    #   until they run out of lives, thus losing the game.
+
+
 New_game = Game()
 
 New_game.print_out_logo()
@@ -95,6 +118,4 @@ print(New_game.word)
 New_game.print_out_logo_art()
 New_game.print_word_display()
 New_game.check_guess(New_game.make_guess())
-New_game.print_word_display()
-
 

@@ -48,50 +48,34 @@ def print_out_letter_display(display):
     print()
     print(display)
 
-def ask_user_to_make_a_guess():
+
+def make_guess():
     """
-    Asks the user to guess a letter and then returns that letter
+    This function will get the user to make a guess , and only return the value after it has
+    been validated to make sure that isn't either an empty string, an integer, or a string that is longer that
+    one letter. The returned value will be converted to lowercase.
     """
-    guess = input("Guess a letter: ")
-    return guess
+    guess = input("Please guess a letter: ")
 
-def validate_input(user_guess):
+    data_valid = False
 
-    """
-    Takes the output from the ask_user_to_make_a_guess function , and validates it to make sure that
-    the data is valid.
-    """
+    while data_valid is not True:
 
-    def return_a_boolean(data_to_be_tested):
+        if guess == "":
+            print("Come on , you have to type something! Try again: ")
+            guess = guess = input("Please guess a letter: ")
 
-        """This nested function will run through a series of checks and return a boolean"""
+        elif guess.isdecimal():
+            print("You can't type a number! Try again: ")
+            guess = guess = input("Please guess a letter: ")
 
-        if user_guess == "":
-            return False
-        elif len(user_guess) > 1:
-            return False
-        elif user_guess.isdecimal():
-            return False
+        elif len(guess) > 1:
+            print("Guess one letter only please. Try again: ")
+            guess = guess = input("Please guess a letter: ")
+
         else:
-            return True
-    
-    if return_a_boolean(user_guess):
-        return user_guess.lower()
-    else:
-        return False
-    
-
-    #Was it the right data-type ie : a string
-
-    #Was it too many characters? 
+            return guess.lower()
 
 
-"""This is a quick test to see if pycharm can send git commits into the github"""
+print(make_guess())
 
-
-
-# print_out_logo()
-# print_out_logo_art(0)
-# print_out_letter_display(display_word(choose_word()))
-
-print(validate_input((ask_user_to_make_a_guess())))

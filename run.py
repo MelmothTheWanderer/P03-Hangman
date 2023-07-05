@@ -5,7 +5,6 @@
 import random
 from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO
 
-
 def choose_word():
     """This fucntion will return a random word fromn the list of random words
     in the words.py file
@@ -14,7 +13,7 @@ def choose_word():
     return random_word
 
 
-def display_word(word):
+def update_word_display(word):
     """Creates an array of underscores to represent unknwon letters of the word
     """
     display = []
@@ -79,6 +78,11 @@ def make_guess():
 
 print_out_logo()
 print_out_logo_art(0)
-display_word(choose_word())
+update_word_display(choose_word())
 make_guess()
+
+
+class Game:
+    def __init__(self):
+        self.word = choose_word()
 

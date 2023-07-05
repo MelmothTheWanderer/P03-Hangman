@@ -20,7 +20,7 @@ def display_word(word):
     display = []
     for _ in range(len(word)):
         display.append("_")
-    return display
+    print(display)
 
 
 def print_out_logo():
@@ -77,5 +77,8 @@ def make_guess():
             return guess.lower()
 
 
-print(make_guess())
+print_out_logo()
+print_out_logo_art(0)
+display_word(choose_word())
+make_guess()
 

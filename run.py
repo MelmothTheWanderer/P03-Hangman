@@ -62,12 +62,34 @@ def validate_input(user_guess):
     the data is valid.
     """
 
-    #was it an integar
+    def return_a_boolean(data_to_be_tested):
+
+        """This nested function will run through a series of checks and return a boolean"""
+
+        if user_guess == "":
+            return False
+        elif len(user_guess) > 1:
+            return False
+        elif user_guess.isdecimal():
+            return False
+        else:
+            return True
+    
+    if return_a_boolean(user_guess):
+        return user_guess.lower()
+    else:
+        return False
+    
+
+    #Was it the right data-type ie : a string
+
+    #Was it too many characters? 
 
 
-print_out_logo()
-print_out_logo_art(0)
-print_out_letter_display(display_word(choose_word()))
-validate_input(ask_user_to_make_a_guess())
 
 
+# print_out_logo()
+# print_out_logo_art(0)
+# print_out_letter_display(display_word(choose_word()))
+
+print(validate_input((ask_user_to_make_a_guess())))

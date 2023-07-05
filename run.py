@@ -21,6 +21,7 @@ class Game:
         self.display = []
         self.create_word_display()
         self.logo = GAME_LOGO
+        self.guessed_letters = []
 
     def create_word_display(self):
         """
@@ -79,6 +80,7 @@ class Game:
                 guess = guess = input("Please guess a letter: ")
 
             else:
+                self.guessed_letters.append(guess.lower)
                 return guess.lower()
 
     def check_guess(self, guess):

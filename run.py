@@ -5,6 +5,7 @@
 import random
 from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO
 
+
 def choose_word():
     """This fucntion will return a random word fromn the list of random words
     in the words.py file
@@ -16,16 +17,12 @@ def choose_word():
 
 
 
-def print_out_logo():
-    """Prints the hangman logo"""
-    print(GAME_LOGO)
-
-
 def print_out_logo_art(lives_used_up):
     """
     prints out the appropriate hangman art based on the lives that the player has used up.
     """
     print(ASCII_ART[lives_used_up])
+
 
 def print_out_letter_display(display):
     """
@@ -69,18 +66,32 @@ def make_guess():
         else:
             return guess.lower()
 
+
 class Game:
     def __init__(self):
         self.word = choose_word()
         self.lives = 7
+        self.display = []
+        self.create_word_display()
+        self.logo = GAME_LOGO
 
-    def update_word_display(self, word):
-        """Creates an array of underscores to represent unknown letters of the word
+    def create_word_display(self):
+        """
+        Updates the display array with underscores to represent unknown letters of the word.
         """
         display = []
-        for _ in range(len(word)):
-            display.append("_")
-        print(display)
+        for _ in range(len(self.word)):
+            self.display.append("_")
+
+    def print_word_display(self):
+        print(self.display)
+
+    def print_out_logo(self):
+        """Prints the hangman logo"""
+        print(GAME_LOGO)
 
 
-print(len(ASCII_ART))
+New_game = Game()
+New_game.print_out_logo()
+New_game.print_word_display()
+

@@ -74,8 +74,8 @@ class Game:
         self.word = choose_word()
         self.lives = 7
 
-    def update_word_display(word):
-        """Creates an array of underscores to represent unknwon letters of the word
+    def update_word_display(self, word):
+        """Creates an array of underscores to represent unknown letters of the word
         """
         display = []
         for _ in range(len(word)):

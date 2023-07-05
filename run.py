@@ -62,11 +62,12 @@ def validate_input(user_guess):
     the data is valid.
     """
 
-print_out_logo()
+    #was it an integar
 
+
+print_out_logo()
 print_out_logo_art(0)
 print_out_letter_display(display_word(choose_word()))
 validate_input(ask_user_to_make_a_guess())
-
 
 

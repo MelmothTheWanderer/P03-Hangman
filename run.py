@@ -56,7 +56,6 @@ class Game:
         self.print_out_logo_art()
         self.print_word_display()
 
-
     def make_guess(self):
         """
         This function will get the user to make a guess , and only return the value after it has
@@ -116,22 +115,32 @@ class Game:
         if guess not in self.guessed_letters:
             self.guessed_letters.append(guess.lower())
 
-
     # TODO Define a function that will ask the user whether or not they wish to continue
     #   with the game. If they do wish to continue, then reset the word , and all of the
     #   game information.
 
+    def reset_the_game(self):
+        self.word_string = choose_word()
+        self.word_list = list(self.word_string)
+        self.lives = 7
+        self.display = []
+        self.create_word_display()
+        self.guessed_letters = []
+        # This runs the game
+        self.print_out_logo()
+        self.refresh_the_playboard()
+        self.play_game()
+
     def ask_to_continue(self):
 
         while True:
-            decision = input("Do you want to continue?\nPlease type y/n")
+            decision = input("Do you want to continue?\nPlease type y/n: ")
             if decision == "y":
-                print("PLACEHOLDER TEXT:THE GAME IS RESET")
+                self.reset_the_game()
             elif decision == "n":
                 break
             else:
                 print("NOT A VALID RESPONSE")
-
 
     # TODO Make a function that will keep allowing the user to make these guesses until they
     #   there are no underscores present in the display array , thus winnind the game, or
@@ -150,7 +159,7 @@ class Game:
             # 2. Ask user to make a guess
             self.check_guess(self.make_guess())
 
-    #This sesction of the function will check to see if the player has won the game or not.
+        # This sesction of the function will check to see if the player has won the game or not.
         if "_" not in self.display:
             print(f"That's right , the word was {self.word_string.upper()}.")
             print("YOU HAVE WON THE GAME!")

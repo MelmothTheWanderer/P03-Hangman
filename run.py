@@ -3,7 +3,10 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 import random
+import os
 from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO
+
+
 
 
 def choose_word():
@@ -24,6 +27,12 @@ class Game:
         self.create_word_display()
         self.logo = GAME_LOGO
         self.guessed_letters = []
+
+    def clear_console(self):
+        """
+        Used to clear the terminal of all text
+        """
+        os.system("cls" if os.name == "nt" else "clear")
 
     def create_word_display(self):
         """
@@ -53,6 +62,7 @@ class Game:
         Should be called after each guess. It displays the relevant hangman picture, along
         with the updated word display
         """
+        self.clear_console()
         self.print_out_logo_art()
         self.print_word_display()
 

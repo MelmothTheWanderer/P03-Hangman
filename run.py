@@ -83,7 +83,6 @@ class Game:
                 guess = guess = input("Please guess a letter: ")
 
             else:
-                self.guessed_letters.append(guess.lower())
                 return guess.lower()
 
     def check_guess(self, guess):
@@ -92,7 +91,11 @@ class Game:
         #   then display a message telling the players that they have already guessed that
         #   letter , and that they should guess again.
 
-        if guess in self.word_list:
+        if guess in self.guessed_letters:
+            self.refresh_the_playboard()
+            print(f"YOU GUESSED THE LETTER '{guess.upper()}' ALREADY! ")
+
+        elif guess in self.word_list:
             # TODO: Create something in that game files that will change the message that confirms that a letter
             #   letter has hit . Use the random.choice method, or something similar .
 
@@ -110,6 +113,9 @@ class Game:
             self.refresh_the_playboard()
             print("")
             print("Nope, that letter is not in the word\nGuess again!")
+
+        if guess not in self.guessed_letters:
+            self.guessed_letters.append(guess.lower())
 
     # TODO Make a function that will keep allowing the user to make these guesses until they
     #   there are no underscores present in the display array , thus winnind the game, or

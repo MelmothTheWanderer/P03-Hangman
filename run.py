@@ -98,11 +98,12 @@ class Game:
             print("That's a hit!\nKeep it up!")
 
         else:
-            self.refresh_the_playboard()
             self.lives -= 1
             self.refresh_the_playboard()
             print("")
             print("Nope, that letter is not in the word\nGuess again!")
+
+            print(f"Lives:{self.lives}")
 
     # TODO Make a function that will keep allowing the user to make these guesses until they
     #   there are no underscores present in the display array , thus winnind the game, or
@@ -110,15 +111,18 @@ class Game:
 
     # As long as there are still letters to guess, and the player has at least 1 life:
     def play_game(self):
-        while "_" in self.display and self.lives > 0:
+        while "_" in self.display and self.lives > 1:
             # 1. Display the game data
-            self.refresh_the_playboard()
+            # self.refresh_the_playboard()
             # 2. Ask user to make a guess
             self.check_guess(self.make_guess())
+        # TODO create and insert a function called check_if_won. Use it to check whether
+        #   the player has won or lost and display the relevant message.
     # 3 Update the data (this is done in the check_guess function
 
 
 New_game = Game()
 
 New_game.print_out_logo()
+New_game.refresh_the_playboard()
 New_game.play_game()

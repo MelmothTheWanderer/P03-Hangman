@@ -117,6 +117,20 @@ class Game:
             self.guessed_letters.append(guess.lower())
 
 
+    # TODO Define a function that will ask the user whether or not they wish to continue
+    #   with the game. If they do wish to continue, then reset the word , and all of the
+    #   game information.
+
+    def ask_to_continue(self):
+
+        while True:
+            decision = input("Do you want to continue?\nPlease type y/n")
+            if decision == "y":
+                print("PLACEHOLDER TEXT:THE GAME IS RESET")
+            elif decision == "n":
+                break
+            else:
+                print("NOT A VALID RESPONSE")
 
 
     # TODO Make a function that will keep allowing the user to make these guesses until they
@@ -150,7 +164,6 @@ class Game:
 
 
 New_game = Game()
-
 New_game.print_out_logo()
 New_game.refresh_the_playboard()
 New_game.play_game()

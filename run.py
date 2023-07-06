@@ -154,9 +154,11 @@ class Game:
         if "_" not in self.display:
             print(f"That's right , the word was {self.word_string.upper()}.")
             print("YOU HAVE WON THE GAME!")
+            self.ask_to_continue()
         else:
             print(f"No, no , no , the word was {self.word_string.upper()}!")
             print("YOU LOSE!")
+            self.ask_to_continue()
 
         # TODO create and insert a function called check_if_won. Use it to check whether
         #   the player has won or lost and display the relevant message.

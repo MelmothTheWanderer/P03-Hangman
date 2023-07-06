@@ -16,7 +16,9 @@ def choose_word():
 
 class Game:
     def __init__(self):
-        self.word = list(choose_word())
+
+        self.word_string = choose_word()
+        self.word_list = list(self.word_string)
         self.lives = 7
         self.display = []
         self.create_word_display()
@@ -28,7 +30,7 @@ class Game:
         Updates the display array with underscores to represent unknown letters of the word.
         """
         display = []
-        for _ in range(len(self.word)):
+        for _ in range(len(self.word_list)):
             self.display.append("_")
 
     def print_word_display(self):
@@ -84,12 +86,12 @@ class Game:
                 return guess.lower()
 
     def check_guess(self, guess):
-        if guess in self.word:
+        if guess in self.word_list:
             # TODO: Create something in that game files that will change the message that confirms that a letter
             #   letter has hit . Use the random.choice method, or something similar .
 
-            for position in range(len(self.word)):
-                letter = self.word[position]
+            for position in range(len(self.word_list)):
+                letter = self.word_list[position]
                 if letter == guess:
                     self.display[position] = guess
 
@@ -111,11 +113,25 @@ class Game:
 
     # As long as there are still letters to guess, and the player has at least 1 life:
     def play_game(self):
+
+        """
+        Loops the game until the player either guesses all the letters, or runs out of lives.
+        A corresponding message is then displayed.
+        """
         while "_" in self.display and self.lives > 1:
             # 1. Display the game data
             # self.refresh_the_playboard()
             # 2. Ask user to make a guess
             self.check_guess(self.make_guess())
+
+    #This sesction of the function will check to see if the player has won the game or not.
+        if "_" not in self.display:
+            print(f"That's right , the word was {self.word_string.upper()}.")
+            print("YOU HAVE WON THE GAME!")
+        else:
+            print(f"No, no , no , the word was {self.word_string.upper()}!")
+            print("YOU LOSE!")
+
         # TODO create and insert a function called check_if_won. Use it to check whether
         #   the player has won or lost and display the relevant message.
     # 3 Update the data (this is done in the check_guess function

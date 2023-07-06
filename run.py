@@ -53,10 +53,9 @@ class Game:
         Should be called after each guess. It displays the relevant hangman picture, along
         with the updated word display
         """
-
         self.print_out_logo_art()
         self.print_word_display()
-        print(f"Guessed letters: {self.guessed_letters}")
+
 
     def make_guess(self):
         """
@@ -102,7 +101,7 @@ class Game:
             for position in range(len(self.word_list)):
                 letter = self.word_list[position]
                 if letter == guess:
-                    self.display[position] = guess
+                    self.display[position] = guess.upper()
 
             self.refresh_the_playboard()
             print("")
@@ -116,6 +115,9 @@ class Game:
 
         if guess not in self.guessed_letters:
             self.guessed_letters.append(guess.lower())
+
+
+
 
     # TODO Make a function that will keep allowing the user to make these guesses until they
     #   there are no underscores present in the display array , thus winnind the game, or

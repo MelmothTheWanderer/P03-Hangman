@@ -4,7 +4,7 @@
 
 import random
 import os
-from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO
+from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO, HIT
 import time
 
 
@@ -134,7 +134,7 @@ class Game:
 
             self.refresh_the_playboard()
             print("")
-            print("That's a hit!\nKeep it up!")
+            print("YOU GOT A HIT!: " + random.choice(HIT))
 
         else:
             self.lives -= 1
@@ -189,7 +189,7 @@ class Game:
             # 2. Ask user to make a guess
             self.check_guess(self.make_guess())
 
-        # This section of the function will check to see if the player has won the game or not.
+        # This sesction of the function will check to see if the player has won the game or not.
         if "_" not in self.display:
             m = f"That's right , the word was {self.word_string.upper()}."
             self.display_message(m)

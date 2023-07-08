@@ -74,3 +74,15 @@ GAME_LOGO = """
 ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████ 
 """
 
+
+HIT = [
+    "YOU DID IT!",
+    "WELL DONE!",
+    "GOOD JOB",
+    "NICE ONE!",
+    "THATS A HIT!",
+    "BINGO!",
+    "DOING WELL. KEEP IT UP",
+    "AMAZING",
+    "YES!"
+]

@@ -124,6 +124,10 @@ class Game:
             self.refresh_the_playboard()
             print(f"YOU GUESSED THE LETTER '{guess.upper()}' ALREADY! ")
 
+        elif not guess.isalpha():
+            print("You can't type a symbol! Try again: ")
+            guess = guess = input("Please guess a letter: ")
+
         elif guess in self.word_list:
             # TODO: Create something in that game files that will change the message that confirms that a letter
             #   letter has hit . Use the random.choice method, or something similar .

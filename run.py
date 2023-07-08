@@ -63,6 +63,7 @@ class Game:
         with the updated word display
         """
         self.clear_console()
+        self.print_out_logo()
         self.print_out_logo_art()
         self.print_word_display()
 
@@ -184,7 +185,6 @@ class Game:
     # 3 Update the data (this is done in the check_guess function
 
 
-New_game = Game()
-New_game.print_out_logo()
-New_game.refresh_the_playboard()
-New_game.play_game()
+new_game = Game()
+new_game.refresh_the_playboard()
+new_game.play_game()

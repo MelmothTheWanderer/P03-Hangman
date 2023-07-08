@@ -67,7 +67,7 @@ class Game:
         self.print_out_logo_art()
         self.print_word_display()
 
-    def display_message(self, message):
+    def display_message(self, duration,  message):
         """
         Takes a string as an argument , and will clear everything on the screen for a moment of time, before
         refreshing it again. This allows the user to clearly see the message without any other distractions.
@@ -75,7 +75,7 @@ class Game:
         self.clear_console()
         self.print_out_logo()
         print(message)
-        time.sleep(2)
+        time.sleep(duration)
         self.refresh_the_playboard()
 
     def make_guess(self):
@@ -97,18 +97,18 @@ class Game:
             if guess == "":
 
                 m = "Come on , you have to type something! Try again:"
-                self.display_message(m)
+                self.display_message(2, m)
                 guess = guess = input("Please guess a letter: ")
 
             elif guess.isdecimal():
 
                 m = "You can't type a number! Try again: "
-                self.display_message(m)
+                self.display_message(2, m)
                 guess = guess = input("Please guess a letter: ")
 
             elif len(guess) > 1:
                 m = "Guess one letter only please. Try again: "
-                self.display_message(m)
+                self.display_message(2, m)
                 guess = guess = input("Please guess a letter: ")
 
             else:

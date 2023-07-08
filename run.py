@@ -5,8 +5,7 @@
 import random
 import os
 from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO
-
-
+import time
 
 
 def choose_word():
@@ -67,12 +66,27 @@ class Game:
         self.print_out_logo_art()
         self.print_word_display()
 
+    def display_message(self, message):
+        """
+        Takes a string as an argument , and will clear everything on the screen for a moment of time, before
+        refreshing it again. This allows the user to clearly see the message without any other distractions.
+        """
+        self.clear_console()
+        self.print_out_logo()
+        print(message)
+        time.sleep(2)
+        self.refresh_the_playboard()
+
     def make_guess(self):
         """
         This function will get the user to make a guess , and only return the value after it has
         been validated to make sure that isn't either an empty string, an integer, or a string that is longer than
         one letter. The returned value will be converted to lowercase.
         """
+
+        # TODO Check for special characters so that an ! or an ? cannot be passed in as letters . You
+        #   can do this using the isalpha function.
+
         guess = input("Please guess a letter: ")
 
         data_valid = False
@@ -80,15 +94,20 @@ class Game:
         while data_valid is not True:
 
             if guess == "":
-                print("Come on , you have to type something! Try again: ")
+
+                m = "Come on , you have to type something! Try again:"
+                self.display_message(m)
                 guess = guess = input("Please guess a letter: ")
 
             elif guess.isdecimal():
-                print("You can't type a number! Try again: ")
+
+                m = "You can't type a number! Try again: "
+                self.display_message(m)
                 guess = guess = input("Please guess a letter: ")
 
             elif len(guess) > 1:
-                print("Guess one letter only please. Try again: ")
+                m = "Guess one letter only please. Try again: "
+                self.display_message(m)
                 guess = guess = input("Please guess a letter: ")
 
             else:
@@ -149,12 +168,12 @@ class Game:
             if decision == "y":
                 self.reset_the_game()
             elif decision == "n":
-                break
+                quit()
             else:
                 print("NOT A VALID RESPONSE")
 
     # TODO Make a function that will keep allowing the user to make these guesses until they
-    #   there are no underscores present in the display array , thus winnind the game, or
+    #   there are no underscores present in the display array , thus winning the game, or
     #   until they run out of lives, thus losing the game.
 
     # As long as there are still letters to guess, and the player has at least 1 life:
@@ -170,14 +189,18 @@ class Game:
             # 2. Ask user to make a guess
             self.check_guess(self.make_guess())
 
-        # This sesction of the function will check to see if the player has won the game or not.
+        # This section of the function will check to see if the player has won the game or not.
         if "_" not in self.display:
-            print(f"That's right , the word was {self.word_string.upper()}.")
-            print("YOU HAVE WON THE GAME!")
+            m = f"That's right , the word was {self.word_string.upper()}."
+            self.display_message(m)
+            m = "YOU HAVE WON THE GAME!"
+            self.display_message(m)
             self.ask_to_continue()
         else:
-            print(f"No, no , no , the word was {self.word_string.upper()}!")
-            print("YOU LOSE!")
+            m = f"No, no , no , the word was {self.word_string.upper()}!"
+            self.display_message(m)
+            m = "YOU LOSE!"
+            self.display_message(m)
             self.ask_to_continue()
 
         # TODO create and insert a function called check_if_won. Use it to check whether

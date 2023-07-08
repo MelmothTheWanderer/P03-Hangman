@@ -125,7 +125,8 @@ class Game:
             print(f"YOU GUESSED THE LETTER '{guess.upper()}' ALREADY! ")
 
         elif not guess.isalpha():
-            print("You can't type a symbol! Try again: ")
+            m = "You can't type a symbol! Try again: "
+            self.display_message(2, m)
             guess = guess = input("Please guess a letter: ")
 
         elif guess in self.word_list:
@@ -200,15 +201,15 @@ class Game:
         # This sesction of the function will check to see if the player has won the game or not.
         if "_" not in self.display:
             m = f"That's right , the word was {self.word_string.upper()}."
-            self.display_message(m)
+            self.display_message(3, m)
             m = "YOU HAVE WON THE GAME!"
-            self.display_message(m)
+            self.display_message(3, m)
             self.ask_to_continue()
         else:
             m = f"No, no , no , the word was {self.word_string.upper()}!"
-            self.display_message(m)
+            self.display_message(3, m)
             m = "YOU LOSE!"
-            self.display_message(m)
+            self.display_message(3, m)
             self.ask_to_continue()
 
         # TODO create and insert a function called check_if_won. Use it to check whether

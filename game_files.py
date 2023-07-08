@@ -80,9 +80,19 @@ HIT = [
     "WELL DONE!",
     "GOOD JOB",
     "NICE ONE!",
-    "THATS A HIT!",
+    "SAVAGE!",
     "BINGO!",
     "DOING WELL. KEEP IT UP",
     "AMAZING",
     "YES!"
+]
+
+MISS = [
+    "HARD LUCK",
+    "NO GOOD",
+    "BETTER LUCK NEXT TIME",
+    "UNLUCKY",
+    "NO DICE",
+    "TUT TUT",
+    "OH DEAR"
 ]

@@ -4,8 +4,9 @@
 
 import random
 import os
-from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO, HIT
+from game_files import LIST_OF_WORDS, ASCII_ART, GAME_LOGO, HIT, MISS
 import time
+
 
 
 def choose_word():
@@ -140,7 +141,7 @@ class Game:
             self.lives -= 1
             self.refresh_the_playboard()
             print("")
-            print("Nope, that letter is not in the word\nGuess again!")
+            print("NO MATCH: " + random.choice(MISS))
 
         if guess not in self.guessed_letters:
             self.guessed_letters.append(guess.lower())
@@ -164,6 +165,9 @@ class Game:
     def ask_to_continue(self):
 
         while True:
+
+            self.clear_console()
+            self.print_out_logo()
             decision = input("Do you want to continue?\nPlease type y/n: ")
             if decision == "y":
                 self.reset_the_game()

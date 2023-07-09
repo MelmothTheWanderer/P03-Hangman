@@ -14,6 +14,10 @@ def choose_word():
 
 
 class Game:
+
+    """
+    This is the game object. It contains all the logic required for the game to run.
+    """
     def __init__(self):
 
         self.word_string = choose_word()
@@ -32,7 +36,7 @@ class Game:
 
     def create_word_display(self):
         """
-        Updates the display array with underscores to represent unknown
+        Updates the self.display array with underscores to represent unknown
         letters of the word.
         """
         display = []
@@ -44,7 +48,10 @@ class Game:
         print(self.display)
 
     def print_out_logo(self):
-        """Prints the HANGMAN logo to the terminal"""
+
+        """
+        Prints the HANGMAN logo to the terminal using ASCII art.
+        """
         print(GAME_LOGO)
 
     def print_out_logo_art(self):
@@ -57,7 +64,7 @@ class Game:
     def refresh_the_playboard(self):
 
         """
-        Should be called after each guess. It displays the relevant hangman
+        Should be called after each guess. It displays the ASCII logo, relevant hangman
         picture, along with the updated word display.
         """
         self.clear_console()
@@ -78,6 +85,7 @@ class Game:
         self.refresh_the_playboard()
 
     def make_guess(self):
+
         """
         This function will get the user to make a guess , and only return the
         value after it has been validated to make sure that isn't either an
@@ -103,6 +111,11 @@ class Game:
                 self.display_message(2, m)
                 guess = guess = input("Please guess a letter: ")
 
+            elif not guess.isalpha():
+                m = "You can't type a symbol! Try again: "
+                self.display_message(2, m)
+                guess = guess = input("Please guess a letter: ")
+
             elif len(guess) > 1:
                 m = "Guess one letter only please. Try again: "
                 self.display_message(2, m)
@@ -113,14 +126,14 @@ class Game:
 
     def check_guess(self, guess):
 
+        """
+        By passing and calling the make_guess function as an argument, this function will
+        check to see if the letter was already used. If not , it will check to make
+        """
+
         if guess in self.guessed_letters:
             self.refresh_the_playboard()
             print(f"YOU GUESSED THE LETTER '{guess.upper()}' ALREADY! ")
-
-        elif not guess.isalpha():
-            m = "You can't type a symbol! Try again: "
-            self.display_message(2, m)
-            guess = guess = input("Please guess a letter: ")
 
         elif guess in self.word_list:
 

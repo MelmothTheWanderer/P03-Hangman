@@ -201,9 +201,6 @@ class Game:
         out of lives. A corresponding message is then displayed.
         """
         while "_" in self.display and self.lives > 1:
-            # 1. Display the game data
-            # self.refresh_the_playboard()
-            # 2. Ask user to make a guess
             self.check_guess(self.make_guess())
 
         if "_" not in self.display:

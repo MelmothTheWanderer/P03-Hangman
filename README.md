@@ -76,14 +76,14 @@ In the future I would like to see the following features in addition to the ones
 
 ### Data model:
 
-The code is object oriented and almost every aspect of the game is stored within an object simply called "Game". This objects stores the following data:
+#### The code is object oriented and almost every aspect of the game is stored within an object simply called "Game". This objects stores the following data:
 
 - The word to be guessed.
 - The amount of "lives" that the player has left. 
 - The letters and underscores in the display
 - The letters that have already been guessed.
 
-The game object also houses all of the functions that make the game possible such as:
+#### The game object also houses all of the functions that make the game possible such as:
 
 - Clearing the screen. 
 - Creating the word display.
@@ -93,3 +93,48 @@ The game object also houses all of the functions that make the game possible suc
 - Checking those guesses to see if it is a hit or a miss
 - Resetting the game and restoring default values
 - ASking the player whether they would like to continue.
+
+### Testing:
+
+I have done the following to test for my project:
+
+- I passed my code through the PEP8 linter and corrected anything that the linter showed up , which was mostly just whitespace and too many empty lines between code.
+- I tried every method of input to mmake sure that the code wasn't throwing any unexpected errors.
+- I played the game many many times on my Linux terminal as I was coding my project and many times afterwards, including on Heroku (where the project was deployed)
+- I got my friends and family to play the game a couple of times to see if they could see something that I had missed.
+
+### Bugs: 
+
+- At one point there was a bug where the logo would print twice. 
+- I had to ammend the code so that special characters like "@" and "!" and so on where not permissible. 
+- There was a bug where the user would have to select "n" multiple times in order to exit the program.
+
+#### Remaining bugs: 
+No remaining bugs.
+
+### Validator testing: 
+-PEP8
+    -No errors. Everything good.
+
+
+### Deployment: 
+
+I deployed my code on Heroku using the CodeInstitute's template. 
+The steps involved in doing so were: 
+
+
+- Create an account of Heroku or just log in if you already have one.
+- Create a new app
+- Give your app a unique name, it can't be something that has been used before.
+- Pick your country and go ahead and click the "Create App" button
+- Add the Python3 and NodeJS buildpacks in the settings.
+- Click on deploy using Github as the method
+- Search for the name of your project in t   he search bar
+- Click to enable automatic updates from your Github
+- Deploy from main branch
+
+### Credits: 
+
+- Code Institute for the validator and the template.
+- My Code Institute Mentor Derek who pointed out bugs and suggested improvements. 
+- My wife for the 50 or so cups of tea it took to make this project. 

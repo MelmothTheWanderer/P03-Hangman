@@ -16,7 +16,8 @@ def choose_word():
 class Game:
 
     """
-    This is the game object. It contains all the logic required for the game to run.
+    This is the game object. It contains all the logic required for
+    the game to run.
     """
     def __init__(self):
 
@@ -64,8 +65,8 @@ class Game:
     def refresh_the_playboard(self):
 
         """
-        Should be called after each guess. It displays the ASCII logo, relevant hangman
-        picture, along with the updated word display.
+        Should be called after each guess. It displays the ASCII logo,
+        relevant hangman picture, along with the updated word display.
         """
         self.clear_console()
         self.print_out_logo()
@@ -127,11 +128,13 @@ class Game:
     def check_guess(self, guess):
 
         """
-        By passing and calling the make_guess function as an argument, this function will
-        check to see if the letter was already used. If not , it will check to see if the letter
-        is indeed in the word that is being guessed. If the letter is in the word, it replaces
-        the blank underscore in the self.display array and updates the display with a message .
-        The inverse is true in the case of a 'miss', and a live is deducted from the player.
+        By passing and calling the make_guess function as an argument,
+        this function will check to see if the letter was already used.
+        If not , it will check to see if the letter is indeed in the word that
+        is being guessed. If the letter is in the word, it replaces
+        the blank underscore in the self.display array and updates
+        the display with a message . The inverse is true in the case of a
+        'miss', and a live is deducted from the player.
         """
 
         if guess in self.guessed_letters:
@@ -161,8 +164,8 @@ class Game:
     def reset_the_game(self):
 
         """
-        Resets all the values necessary for the game to start fresh, updates the screen art
-        and then calls the play_game function itself.
+        Resets all the values necessary for the game to start fresh,
+        updates the screen art and then calls the play_game function itself.
         """
         self.word_string = choose_word()
         self.word_list = list(self.word_string)
@@ -177,8 +180,8 @@ class Game:
     def ask_to_continue(self):
 
         """
-        Asks the user for yes or no input to determine whether or not they would like
-        to continue to use the program.
+        Asks the user for yes or no input to determine whether or not they
+        would like to continue to use the program.
         """
 
         while True:

@@ -52,9 +52,44 @@ Users are prompted to input a letter into the terminal , but there is input vali
 
 The message when the player gets a "hit" or "miss" are not static, they may be different.
 
+#### Hit messages:
+![good1](./images/good1.png)
+
+![good2](./images/good2.png)
+
+#### Miss messages:
+
+![bad1](./images/bad1.png)
+
+![bad2](./images/bad2.png)
+
 ### Continue screen:
 
 Whether the player is victorious or ends up hanging their unfortunate companion, the player is presented with the choice whether or not they want to continue by way of a simple y/n input. This screen also has input validation to make sure that the player cannot break the game by inputting something other than a "y" or a "n".
 
+### Future features:
 
+In the future I would like to see the following features in addition to the ones that are already available: 
 
+- A difficulty option (easy, medium, hard)
+- A display for the letters that have been guessed already.
+
+### Data model:
+
+The code is object oriented and almost every aspect of the game is stored within an object simply called "Game". This objects stores the following data:
+
+- The word to be guessed.
+- The amount of "lives" that the player has left. 
+- The letters and underscores in the display
+- The letters that have already been guessed.
+
+The game object also houses all of the functions that make the game possible such as:
+
+- Clearing the screen. 
+- Creating the word display.
+- Refreshing the screen with up-to-date information.
+- Displaying validation messages clearly
+- Making a validating user guesses
+- Checking those guesses to see if it is a hit or a miss
+- Resetting the game and restoring default values
+- ASking the player whether they would like to continue.
